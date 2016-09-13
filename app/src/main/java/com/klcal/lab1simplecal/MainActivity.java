@@ -69,8 +69,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (tvFormulaText.trim().length() == 2) {
-                    return;
+                for (String operator : operators) {
+                    // If the last character is operator, do nothing
+                    if (tvFormulaText.substring(tvFormulaText.length() - 1).equals(operator)) {
+                        return;
+                    }
                 }
 
                 String tempFormulaText  = tvFormulaText.trim().replaceAll("[^0-9]", ",");
